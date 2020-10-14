@@ -33,24 +33,3 @@ for y in cycle(list):
     i += 1
     print(y)
 
-# # б) итератор, повторяющий элементы некоторого списка, определенного заранее.
-# # Выводим столько элементов списка, сколько задал пользователь.
-#
-# from itertools import cycle
-#
-# try:
-#     max_counter = int(input('Введите количество элементов списка: '))
-# except ValueError:
-#     print('Введено некорректное значение.')
-#     exit()
-#
-# el_list = ['el1', 'el2', 'el3', 'el4']
-#
-# counter = 0
-# for el in cycle(el_list):
-#     if counter >= max_counter:
-#         break
-#     print(el)
-#     counter += 1
-#
-# print(f'Операция окончена. Выведено {max_counter} элемента(ов).')
