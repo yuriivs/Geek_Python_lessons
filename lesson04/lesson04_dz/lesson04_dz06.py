@@ -10,3 +10,44 @@
 # Например, в первом задании выводим целые числа, начиная с 3, а при достижении числа 10 завершаем цикл.
 # Во втором также необходимо предусмотреть условие, при котором повторение элементов списка будет прекращено.
 
+from itertools import count
+from itertools import cycle
+
+start_num = int(input("Введите стартовое число массива: >>>"))
+len_list = int(input("Сколько чисел должно быть в массиве? >>>"))
+
+for x in count(start_num, 1):
+    if x > len_list + start_num - 1:
+        break
+    print(x)
+
+finish_num = int(input("На каком числе оставновить наполнение массива? >>>"))
+
+i = 0
+for y in cycle(start_num):
+    if i > finish_num:
+        break
+    i += 1
+    print(y)
+
+# # б) итератор, повторяющий элементы некоторого списка, определенного заранее.
+# # Выводим столько элементов списка, сколько задал пользователь.
+#
+# from itertools import cycle
+#
+# try:
+#     max_counter = int(input('Введите количество элементов списка: '))
+# except ValueError:
+#     print('Введено некорректное значение.')
+#     exit()
+#
+# el_list = ['el1', 'el2', 'el3', 'el4']
+#
+# counter = 0
+# for el in cycle(el_list):
+#     if counter >= max_counter:
+#         break
+#     print(el)
+#     counter += 1
+#
+# print(f'Операция окончена. Выведено {max_counter} элемента(ов).')
