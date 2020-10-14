@@ -7,4 +7,5 @@ def argument(a, b):
     except ZeroDivisionError:
         return "На ноль делить нельзя"
 
+
 print(argument(2, 4))
