@@ -1,12 +1,3 @@
-#Реализовать функцию, принимающую два числа (позиционные аргументы) и выполняющую их деление.
-# Числа запрашивать у пользователя, предусмотреть обработку ситуации деления на ноль.
-
-def my_func (x, y):
-    try:
-        z = x / y
-        return z
-    except ZeroDivisionError:
-        return "y is'n be a zero"
-    except ValueError:
-        return "enter only number"
-print(my_func(int(input("Enter x = ")), int(input("Enter y = "))))
+my_list = [300, 2, 12, 44, 1, 1, 4, 10, 7, 1, 78, 123, 55]
+list_corr = [el for el in my_list if el > my_list[my_list.index(el)-1]]
+print(list_corr)

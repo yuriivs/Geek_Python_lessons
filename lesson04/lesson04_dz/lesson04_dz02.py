@@ -4,12 +4,6 @@
 # Пример исходного списка: [300, 2, 12, 44, 1, 1, 4, 10, 7, 1, 78, 123, 55].
 # Результат: [12, 44, 4, 10, 78, 123].
 
-def user_generator():
-    for user in ("John", "Kate", "Artur"):
-        yield user
-
-    # print(user_generator())
-
-
-for user_item in user_generator():
-    print(user_item)
+basic_list = [300, 2, 12, 44, 1, 1, 4, 10, 7, 1, 78, 123, 55]
+list_corr = [el for el in basic_list if el > basic_list[basic_list.index(el) - 1]]
+print(list_corr)
