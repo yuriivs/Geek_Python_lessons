@@ -13,19 +13,22 @@
 from itertools import count
 from itertools import cycle
 
-start_num = int(input("Введите стартовое число массива: >>>"))
-len_list = int(input("Сколько чисел должно быть в массиве? >>>"))
+start_num = int(input("Введите стартовое число списка: >>>"))
+len_list = int(input("Сколько чисел должно быть в списке? >>>"))
 
 for x in count(start_num, 1):
     if x > len_list + start_num - 1:
         break
     print(x)
 
-finish_num = int(input("На каком числе оставновить наполнение массива? >>>"))
+
+list = [1, 2, 4, 5, 7, 8, 10, 1002]
+print("Это наш новый список:", list)
+finish_num = int(input("На каком элементе остановить наполнение списка? >>>"))
 
 i = 0
-for y in cycle(start_num):
-    if i > finish_num:
+for y in cycle(list):
+    if i > finish_num - 1:
         break
     i += 1
     print(y)
