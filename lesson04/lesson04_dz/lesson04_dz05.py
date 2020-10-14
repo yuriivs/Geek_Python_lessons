@@ -4,15 +4,16 @@
 #
 # Подсказка: использовать функцию reduce().
 
-from itertools import count
 from functools import reduce
 
-for x in count(100, 2):
-    if x > 1000:
-        break
+from functools import reduce
 
-print(reduce(lambda res, x: res * x, count, 2))
+list = [x for x in range(100, 1001) if x % 2]
 
-# from functools import reduce
-#
-# print(x * (x + 1))
+def gen(total, x):
+    return total * x
+
+generate_list = reduce(gen, list)
+
+print(list)
+print(generate_list)
