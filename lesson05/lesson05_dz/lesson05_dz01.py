@@ -6,4 +6,4 @@ with open("data1.txt", "w") as printable:
     string = list(input("Введите строку из нескольких слов, разделенных пробелами >>>").split())
 
     for x in string:
-        print(x, file=printable)
+       print(x, file=printable)
