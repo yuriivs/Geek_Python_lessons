@@ -6,8 +6,6 @@
 
 from functools import reduce
 
-from functools import reduce
-
 list = [x for x in range(100, 1001) if x % 2]
 
 def gen(total, x):
@@ -15,5 +13,5 @@ def gen(total, x):
 
 generate_list = reduce(gen, list)
 
-print(list)
-print(generate_list)
+print("Список четных чисел:", list)
+print("Произведение элементов списка:", generate_list)
