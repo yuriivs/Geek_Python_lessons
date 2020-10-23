@@ -9,26 +9,71 @@
 # Задачу можно усложнить, реализовав проверку порядка режимов,
 # и при его нарушении выводить соответствующее сообщение и завершать скрипт.
 
+
+# from time import sleep as light_sleep
+# import os
+#
+# class TrafficLight:
+#     __color = str
+#
+#     def run(self, color):
+#         self.__color = color
+#
+#         # os.system('clear')
+#         print(color["name"])
+#         light_sleep((color["time"]))
+#
+#
+# colors = [{
+#     "name": "red",
+#     "time": 7
+# }, {
+#     "name": "yellow",
+#     "time": 2
+# }, {
+#     "name": "green",
+#     "time": 4
+# }]
+#
+# traffic = TrafficLight()
+#
+# i = 0
+# while True:
+#     traffic.run(colors[i])
+#     i += 1
+#     if i >= len(colors):
+#         i = 0
+
 from time import sleep as light_sleep
-from os import
-
-
+# import os //на MacOs почему-то не работает метод clear - поэтому комментирую импорт os
 
 
 class TrafficLight:
     __color = str
 
-    def running(self, color):
-        TrafficLight.__color = color
-        print(color["color_one"])
-        light_sleep((color["pause_one"]))
-        sp.call('cls', shell=True)
-        print(color["color_two"])
-        light_sleep((color["pause_two"]))
-        print(color["color_three"])
+    def running(self, colors):
+        i = 0
+        while True:
+            self.__color = colors[i]
+            self.run_color()
+            i = (i + 1) if i < len(colors) - 1 else 0
+
+    def run_color(self):
+        # os.system('clear') на MacOs почему-то не работает
+        print(self.__color["name"])
+        light_sleep(self.__color["time"])
 
 
-a = TrafficLight()
-a.running({"color_one": "red", "pause_one": 1,
-               "color_two": "yellow", "pause_two": 1,
-               "color_three": "green", "pause_three": 1})
+colors = [{
+    "name": "red",
+    "time": 7
+}, {
+    "name": "yellow",
+    "time": 2
+}, {
+    "name": "green",
+    "time": 4
+}]
+
+traffic = TrafficLight()
+traffic.running(colors)
