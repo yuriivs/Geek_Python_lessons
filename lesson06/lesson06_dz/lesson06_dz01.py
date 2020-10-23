@@ -25,7 +25,7 @@ class TrafficLight:
             i = (i + 1) if i < len(colors) - 1 else 0
 
     def run_color(self):
-        # os.system('clear') на MacOs почему-то не работает
+        # os.system('clear') хотел сделать поочередный вывод цвета светофора в одну сторку - на MacOs почему-то не работает
         print(self.__color["name"])
         light_sleep(self.__color["time"])
 
