@@ -10,40 +10,6 @@
 # и при его нарушении выводить соответствующее сообщение и завершать скрипт.
 
 
-# from time import sleep as light_sleep
-# import os
-#
-# class TrafficLight:
-#     __color = str
-#
-#     def run(self, color):
-#         self.__color = color
-#
-#         # os.system('clear')
-#         print(color["name"])
-#         light_sleep((color["time"]))
-#
-#
-# colors = [{
-#     "name": "red",
-#     "time": 7
-# }, {
-#     "name": "yellow",
-#     "time": 2
-# }, {
-#     "name": "green",
-#     "time": 4
-# }]
-#
-# traffic = TrafficLight()
-#
-# i = 0
-# while True:
-#     traffic.run(colors[i])
-#     i += 1
-#     if i >= len(colors):
-#         i = 0
-
 from time import sleep as light_sleep
 # import os //на MacOs почему-то не работает метод clear - поэтому комментирую импорт os
 
