@@ -20,13 +20,13 @@
 #     pass
 
 
-class StoreMashines:
+class Warehouse:
 
-    def __init__(self, name, price, quantity, number_of_lists, *args):
+    def __init__(self, name, price, quantity, id, *args):
         self.name = name
         self.price = price
         self.quantity = quantity
-        self.numb = number_of_lists
+        self.id = id
         self.my_store_full = []
         self.my_store = []
         self.my_unit = {'Device model': self.name, 'Price per one': self.price, 'Quantity': self.quantity}
@@ -55,22 +55,22 @@ class StoreMashines:
             print(f'Whole warehouse -\n {self.my_store_full}')
             return f'Quit'
         else:
-            return StoreMashines.reception(self)
+            return Warehouse.reception(self)
 
 
-class Printer(StoreMashines):
+class Printer(Warehouse):
     def to_print(self):
-        return f'to print smth. {self.numb} times'
+        return f'to print smth. {self.id} times'
 
 
-class Scanner(StoreMashines):
+class Scanner(Warehouse):
     def to_scan(self):
-        return f'to scan smth. {self.numb} times'
+        return f'to scan smth. {self.id} times'
 
 
-class Copier(StoreMashines):
+class Copier(Warehouse):
     def to_copier(self):
-        return f'to copier smth.  {self.numb} times'
+        return f'to copier smth.  {self.id} times'
 
 
 unit_1 = Printer('Kyocera', 44000, 20, 10)
