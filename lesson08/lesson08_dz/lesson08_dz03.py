@@ -11,19 +11,21 @@ class Error:
 
         while True:
             try:
-                val = int(input('Enter values and press Enter - '))
+                # count = int(input('Сколько элементов будет в списке? >>> '))
+                val = int(input('Введите число для списка: >>> '))
                 self.my_list.append(val)
-                print(f'Current list - {self.my_list} \n ')
+                print(f'Список - {self.my_list} \n ')
             except:
-                print(f"Invalid value: string and boolean")
-                y_or_n = input(f'Try again? Y/N ')
+                print(f"Ошибка!")
+                y_or_n = input(f'Попробуем еще? Да/Нет ')
 
-                if y_or_n == 'Y' or y_or_n == 'y':
+                if y_or_n == 'Да' or y_or_n == 'да':
                     print(try_except.my_input())
-                elif y_or_n == 'N' or y_or_n == 'n':
-                    return f'You quite'
+                elif y_or_n == 'Нет' or y_or_n == 'нет':
+                    return f'Ок. Программа завершена!'
+                    break
                 else:
-                    return f'You quite'
+                    return f'Ок'
 
 try_except = Error(1)
 print(try_except.my_input())
