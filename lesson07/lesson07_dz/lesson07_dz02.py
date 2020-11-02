@@ -1,51 +1,55 @@
-# Реализовать проект расчета суммарного расхода ткани на производство одежды.
-# Основная сущность (класс) этого проекта — одежда, которая может иметь определенное название.
-# К типам одежды в этом проекте относятся пальто и костюм. У этих типов одежды существуют параметры:
-# размер (для пальто) и рост (для костюма). Это могут быть обычные числа: V и H, соответственно.
-# Для определения расхода ткани по каждому типу одежды использовать формулы: для пальто (V/6.5 + 0.5),
-# для костюма (2*H + 0.3). Проверить работу этих методов на реальных данных.
-# Реализовать общий подсчет расхода ткани. Проверить на практике полученные
-# на этом уроке знания: реализовать абстрактные классы для основных классов проекта,
-# проверить на практике работу декоратора @property.
+class Cell:
+    def __init__(self, num: int):
+        self.num = num
 
-from abc import ABC, abstractclassmethod
+    def make_order(self, num: int):
+        ind = 1
+        cell_string = ""
+        if num != "\nНевозможно выполнить вычитание: уменьшаемое число меньше вычитаемого":
+            if num != "\nНевозможно выполнить деление клеток, делитель равен 0":
+                if num != 0:
+                    while ind <= num:
+                        if ind % 5 != 0:
+                            cell_string = cell_string + "*"
+                        else:
+                            cell_string = cell_string + "*\n"
+                        ind += 1
+        return cell_string
 
-class color:
-   BOLD = '\033[1m'
-   END = '\033[0m'
+    def __add__(self, other):
+        return self.num + other.num
 
-class Clothes:
-    @abstractclassmethod
-    def cut_clothes(self):
-        pass
+    def __sub__(self, other):
+        if self.num >= other.num:
+            return self.num - other.num
+        else:
+            return "\nНевозможно выполнить вычитание: уменьшаемое число меньше вычитаемого"
 
+    def __mul__(self, other):
+        return self.num * other.num
 
-def print_decorator(func):
-    def wrapper(*args, **kwargs):
-        print (color.BOLD + "Расчет количества ткани:" + color.END)
-        func(*args, **kwargs)
-        # print("End")
-
-    return wrapper
-
-
-class Coat(Clothes):
-    @print_decorator
-    def cut_clothes(self, size = int):
-        self.size = size
-
-        print(f"Для пальто ", size, "размера - необходимо: ", size/6.5 + 0.5, "метров ткани.")
+    def __truediv__(self, other):
+        if other.num == 0:
+            return "\nНевозможно выполнить деление клеток, делитель равен 0"
+        else:
+            return self.num // other.num
 
 
-class Suit(Clothes):
-    @print_decorator
-    def cut_clothes(self, height = int):
-        self.height = height
-        print(f"Для костюма ", height, "роста - необходимо: ", 2 * height + 0.3, "метров ткани.")
-
-
-a = Coat()
-b = Suit()
-
-a.cut_clothes(5)
-b.cut_clothes(2)
+cell1 = Cell(8)
+cell2 = Cell(6)
+cell3 = Cell(9)
+cell4 = Cell(0)
+print(f"Складываем {cell1.num} и {cell2.num}: ", cell1 + cell2)
+print(Cell(cell1 + cell2).make_order(cell1 + cell2))
+print(f"Вычитаем {cell1.num} и {cell2.num}: ", cell1 - cell2)
+print(Cell(cell1 - cell2).make_order(cell1 - cell2))
+print(f"Вычитаем {cell1.num} и {cell1.num}: ", cell1 - cell1)
+print(Cell(cell1 - cell1).make_order(cell1 - cell1))
+print(f"Вычитаем {cell1.num} и {cell3.num}: ", cell1 - cell3)
+print(Cell(cell1 - cell3).make_order(cell1 - cell3))
+print(f"Умножаем {cell1.num} на {cell2.num}: ", cell1 * cell2)
+print(Cell(cell1 * cell2).make_order(cell1 * cell2))
+print(f"Делим {cell1.num} на {cell2.num}: ", cell1 / cell2)
+print(Cell(cell1 / cell2).make_order(cell1 / cell2))
+print(f"Делим {cell1.num} на {cell4.num}: ", cell1 / cell4)
+print(Cell(cell1 / cell4).make_order(cell1 / cell4))
