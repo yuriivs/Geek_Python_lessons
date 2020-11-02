@@ -24,16 +24,16 @@ class Data:
         if 1 <= day <= 31:
             if 1 <= month <= 12:
                 if 2019 >= year >= 0:
-                    return f'All right'
+                    return f'Все ок'
                 else:
-                    return f'Wrong year'
+                    return f'Неправильный год'
             else:
-                return f'Wrong month'
+                return f'Неправильный месяц'
         else:
-            return f'Wrong day'
+            return f'Неправильный день'
 
     def __str__(self):
-        return f'Current date is {Data.extract(self.day_month_year)}'
+        return f'Текущая дата {Data.extract(self.day_month_year)}'
 
 
 today = Data('8 - 8 - 2008')
